@@ -558,7 +558,7 @@
             <span class="live-badge">🔴 LIVE SESSION</span>
             <h2>Next Live Prayer Session</h2>
             <div class="session-time" id="next-session">
-                Wednesday, 7:00 PM EST
+                MORNINGS 5:00-6:00 AM PST
             </div>
             
             <!-- Countdown Timer -->
@@ -590,22 +590,22 @@
             <div class="calendar-grid">
                 <div class="calendar-day">
                     <div class="day-header">Monday</div>
-                    <div class="day-time">⏰ 6:00 AM</div>
-                    <div class="day-topic">Morning Intercession</div>
+                    <div class="day-time">⏰ 4:00-5:00</div>
+                    <div class="day-topic"> Intercession</div>
                 </div>
                 <div class="calendar-day">
                     <div class="day-header">Wednesday</div>
-                    <div class="day-time">⏰ 7:00 PM</div>
+                    <div class="day-time">⏰ 4:00 PM</div>
                     <div class="day-topic">Healing & Miracles</div>
                 </div>
                 <div class="calendar-day">
                     <div class="day-header">Friday</div>
-                    <div class="day-time">⏰ 12:00 PM</div>
+                    <div class="day-time">⏰ 4:00 pm-6:00pm </div>
                     <div class="day-topic">Breakthrough Prayer</div>
                 </div>
                 <div class="calendar-day">
                     <div class="day-header">Sunday</div>
-                    <div class="day-time">⏰ 9:00 AM</div>
+                    <div class="day-time">⏰ 5:00 AM-6:00pm</div>
                     <div class="day-topic">Corporate Worship & Prayer</div>
                 </div>
             </div>
@@ -833,14 +833,13 @@
             const now = new Date();
             let nextSession = new Date();
             
-            // Find next Wednesday
-            const daysUntilWednesday = (3 - now.getDay() + 7) % 7;
-            nextSession.setDate(now.getDate() + (daysUntilWednesday || 7));
-            nextSession.setHours(19, 0, 0, 0); // 7 PM
+            // Find next 5:00 am pst
+            nextSession.setUTCHours(13, 0, 0, 0);
             
             // If it's already past 7 PM on Wednesday, set for next week
             if (now > nextSession) {
-                nextSession.setDate(nextSession.getDate() + 7);
+                nextSession.setDate(nextSession.getDate() + 1);
+                nextSession.setUTCHours(13, 0, 0, 0);
             }
             
             const timeDiff = nextSession - now;
